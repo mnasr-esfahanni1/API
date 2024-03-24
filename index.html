@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@3.0.0/reset.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+    <title>Weather API</title>
+</head>
+<body>
+    <header id="header">
+        <div id="container">
+            <h1>Only the weather forcast you needed</h1>
+            <div id="select_city">
+
+                <select id="location_city">
+                    <option value="Toronto" selected>Toronto</option>
+                    <option value="Tehran">Tehran</option>
+                    <option value="London">London</option>
+                    <option value="New York">New York</option>
+                    <option value="Paris">Paris</option>
+                </select>
+                <!-- button -->
+                <button id="submit">Get Weather</button>
+
+            </div>
+        </div>
+
+        <nav>
+            <div id="locationName"></div>
+            <div id="Date"></div>
+            <div id="temp"></div>
+            <div id="condition"></div>
+        </nav>
+
+    </header>
+    
+    <main>
+    <section id="first_top">
+        <div>
+            <h1>Welcom back Mina!</h1>
+            <h1>Check out today's weather information</h1>
+        
+        </div>
+        <div id="Profile"></div>
+    </section>
+    <section id="second_top">
+        <figure id="pictureOfDay">
+
+        </figure>
+    </section>
+    <section id="second">
+        <h1>More details of today weather</h1>
+        <ul>
+            <li >
+                <figure>
+                    <p>Humidity</p>
+                    <i id="Humidity_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-droplets" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M4.072 20.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798z" />
+                            <path d="M16.072 20.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798z" />
+                            <path d="M10.072 10.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798z" />
+                          </svg>
+                    </i>
+                </figure>
+                <div id="Humidity_info">
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number_humidity">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <svg mens="http://www.w3.org/2000/svg." version="1.1" width="100px" height= "100px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e3f1ff"   />
+                                <stop offset="100%" stop-color="#639ad2"  />                           </linearGradient>
+                        </defs>
+                        <circle id="circle" cx="50" cy="50" r="45" stroke-linecap="round" />
+                    </svg>
+
+                </div>
+
+            </li>
+            <li>
+                <figure>
+                    <p>Wind</p>
+                    <i id="Wind_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wind" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24" />
+                            <path d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24" />
+                            <path d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24" />
+                          </svg>
+                    </i>
+                </figure>
+                <h1 id="Wind_info">
+                    
+                        <div id="Wind_k"></div>
+                        <div id="Wind_Gusts"></div>
+
+                        
+                   
+
+                </h1>
+            </li>
+            <li>
+                <figure>
+                    <p>Visibility</p>
+                    <i id="Visibility_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-telescope" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M6 21l6 -5l6 5" />
+                        <path d="M12 13v8" />
+                        <path d="M3.294 13.678l.166 .281c.52 .88 1.624 1.265 2.605 .91l14.242 -5.165a1.023 1.023 0 0 0 .565 -1.456l-2.62 -4.705a1.087 1.087 0 0 0 -1.447 -.42l-.056 .032l-12.694 7.618c-1.02 .613 -1.357 1.897 -.76 2.905z" />
+                        <path d="M14 5l3 5.5" />
+                      </svg>
+                    </i>
+                </figure>
+                <h1 id="Visibility_info"></h1>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <figure>
+                    <p>UV Index</p>
+                    <i id="Index_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun-high" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" />
+                            <path d="M6.343 17.657l-1.414 1.414" />
+                            <path d="M6.343 6.343l-1.414 -1.414" />
+                            <path d="M17.657 6.343l1.414 -1.414" />
+                            <path d="M17.657 17.657l1.414 1.414" />
+                            <path d="M4 12h-2" />
+                            <path d="M12 4v-2" />
+                            <path d="M20 12h2" />
+                            <path d="M12 20v2" />
+                          </svg>
+                    </i>
+                </figure>
+                <div id="Index_info">
+                    <h1 id="IndexNumber"></h1>
+                    
+                   <div id="progress">
+                    <div id="progress_done"></div>
+                 
+                   </div>
+                   <div id="stuatus"></div>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <p>Fills Like</p>
+                    <i id="FillsLike_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-temperature" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M10 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5" />
+                            <path d="M10 9l4 0" />
+                          </svg>
+                    </i>
+                </figure>
+                <h1 id="FillsLike_info"></h1>
+            </li>
+            <li>
+                <figure>
+                    <p>Perception</p>
+                    <i id="Perception_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-rain" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7" />
+                            <path d="M11 13v2m0 3v2m4 -5v2m0 3v2" />
+                          </svg>
+                    </i>
+                </figure>
+                <h1 id="Perception_info"></h1>
+            </li>
+        </ul>
+
+    </section>
+
+        
+    </main>
+
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
