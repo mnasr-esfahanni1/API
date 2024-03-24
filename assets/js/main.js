@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function getWeather(city){
     try{
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=0696c4053e4248b180e33947231310&q=${city}&aqi=no`);
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=0696c4053e4248b180e33947231310&q=${city}&aqi=no`);
         const data = await response.json();
 
 
